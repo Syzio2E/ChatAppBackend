@@ -12,12 +12,13 @@ const Chat = require('./models/chat')
 const User = require('./models/User')
 const socketio = require('socket.io')
 
+app.use(cors())
 
 const app = express()
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
-    origin: 'https://chat-app-frontend-hm4g0jcwc-syzio2es-projects.vercel.app', 
+    origin: '*', 
     methods: ['GET', 'POST','DELETE','PUT','PATCH',], 
     credentials: true, 
   },
